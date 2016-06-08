@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="5dp"
+    android:id="@+id/submit_query"
+    android:background="@+drawable/full_cover">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_layout1_submit"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:layout_height="wrap_content"
+            android:text="Start Time: "/>
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hello"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout1_submit"
+        android:id="@+id/linear_layout2_submit"
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Time: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_end_time"
+            android:text="hello"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout2_submit"
+        android:id="@+id/linear_layout3_submit"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:text="Tag: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_tag_text"
+            android:text="hello"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="top"
+        android:singleLine="false"
+        android:layout_marginTop="5dp"
+        android:id="@+id/tag_content"
+        android:background="#ffffff"
+        android:textColor="#333333"
+        android:hint="输入标签对应的内容"
+        android:layout_below="@+id/linear_layout3_submit"
+        android:layout_above="@+id/gridLayout2" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout2"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="go"
+            android:id="@+id/button_submit"/>
+    </GridLayout>
+
+</RelativeLayout>

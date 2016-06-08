@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@+drawable/full_cover">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/cover"
+        android:scaleType="fitCenter"
+        android:id="@+id/imageViewCover" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/imageViewCover"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="username: "
+                android:textSize="20dp"
+                android:id="@+id/text_view1"
+                android:singleLine="true"
+                android:textColor="#ffffff" />
+            <EditText
+                android:layout_width="200dp"
+                android:singleLine="true"
+                android:alpha="0.7"
+                android:textSize="20dp"
+                android:background="#ffffff"
+                android:hint="username"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameText"
+                android:text="cc"
+                android:textColor="#000000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:singleLine="true"
+                android:textSize="20dp"
+                android:text="password: "
+                android:textColor="#ffffff" />
+            <EditText
+                android:layout_width="200dp"
+                android:hint="password"
+                android:textSize="20dp"
+                android:background="#ffffff"
+                android:text="315"
+                android:alpha="0.7"
+                android:singleLine="true"
+                android:layout_height="wrap_content"
+                android:id="@+id/passwordText"
+                android:password="true"
+                android:textColor="#000000" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            >
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:id="@+id/radioGroup">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="participant"
+                    android:id="@+id/radioButtonParticipant" />
+                <RadioButton
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="querier"
+                    android:id="@+id/radioButtonQuerier" />
+            </RadioGroup>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="login"
+                android:id="@+id/loginButton"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:alpha="0.5" />
+            <TextView android:layout_height="match_parent"
+                android:layout_width="wrap_content" android:text="         "/>
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="register"
+                android:id="@+id/registerButton"
+                android:layout_gravity="center_horizontal"
+                android:alpha="0.5" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

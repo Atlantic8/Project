@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="64dip"
+    android:background="#333333"
+    android:orientation="horizontal"
+    android:padding="5dip">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="18dip"
+        android:textColor="#ffffff"
+        android:id="@+id/second_text"
+        android:paddingTop="1dip"
+        android:text="Tag："/>
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="18dip"
+        android:id="@+id/service_tag2"
+        android:layout_toRightOf="@+id/second_text"
+        android:paddingTop="1dip"
+        android:text="video games time"
+        android:layout_toLeftOf="@+id/go_icon"/>
+
+
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="1dip"
+        android:textSize="12dip"
+        android:layout_below="@+id/service_tag2"
+        android:id="@+id/zero_text"
+        android:text="Interval：["/>
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingLeft="5dip"
+        android:layout_below="@+id/service_tag2"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/zero_text"
+        android:textSize="12dip"
+        android:id="@+id/start_time2"
+        android:text="11"/>
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/service_tag2"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/start_time2"
+        android:id="@+id/first_text"
+        android:textSize="12dip"
+        android:text="h~"/>
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/service_tag2"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/first_text"
+        android:textSize="12dip"
+        android:id="@+id/end_time2"
+        android:text="13"/>
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/service_tag2"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/end_time2"
+        android:textSize="12dip"
+        android:text="h]"/>
+
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/zero_text"
+        android:id="@+id/service_item_content"
+        android:layout_marginTop="1dip"
+        android:singleLine="true"
+        android:maxLength="20"
+        android:textSize="12dip"
+        android:text="Content"/>
+
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/content_create_time"
+        android:layout_alignParentRight="true"
+        android:singleLine="true"
+        android:maxLength="25"
+        android:textSize="12dip"
+        android:text="2016-03-23 11:15"/>
+
+    <!-- 进入 -->
+    <ImageView android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:src="@drawable/arrow"
+        android:id="@+id/go_icon"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

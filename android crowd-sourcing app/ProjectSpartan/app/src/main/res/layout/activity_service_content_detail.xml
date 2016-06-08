@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="5dp"
+    android:id="@+id/submit_query"
+    android:background="@+drawable/full_cover">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_layout1_submit_detail"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:layout_height="wrap_content"
+            android:text="Start Time: "/>
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_start_time_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout1_submit_detail"
+        android:id="@+id/linear_layout2_submit_detail"
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Time: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_end_time_detail"
+            android:text="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout2_submit_detail"
+        android:id="@+id/linear_layout9_submit_detail">
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Time: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_create_time_detail"
+            android:text="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout9_submit_detail"
+        android:id="@+id/linear_layout3_submit_detail"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:text="Tag: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#eeeeee"
+            android:id="@+id/submit_tag_text_detail"
+            android:text="hello"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="top"
+        android:singleLine="false"
+        android:layout_marginTop="5dp"
+        android:id="@+id/tag_content_detail"
+        android:background="#ffffff"
+        android:textColor="#333333"
+        android:editable="false"
+        android:layout_below="@+id/linear_layout3_submit_detail"
+        android:layout_above="@+id/gridLayout2_detail" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout2_detail"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="OK"
+            android:id="@+id/button_submit_detail"/>
+    </GridLayout>
+
+</RelativeLayout>
+

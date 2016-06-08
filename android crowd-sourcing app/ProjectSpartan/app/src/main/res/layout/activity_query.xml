@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@+drawable/full_cover">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linear_layout_query2"
+        android:id="@+id/linear_layout_query1">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stackFromBottom="false"
+            android:id="@+id/listView"
+            android:background="#88cc"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linear_layout_query2">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pose question"
+            android:id="@+id/btn_pose_question"/>
+    </LinearLayout>
+
+</RelativeLayout>

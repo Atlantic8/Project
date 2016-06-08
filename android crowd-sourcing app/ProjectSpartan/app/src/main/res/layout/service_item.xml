@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="64dip"
+    android:background="#444444"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dip"
+        android:textSize="20dip"
+        android:textColor="#eeeeee"
+        android:id="@+id/zero_text"
+        android:text="Interval: ["/>
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingLeft="3dip"
+        android:layout_marginTop="5dip"
+        android:layout_toRightOf="@+id/zero_text"
+        android:textSize="20dip"
+        android:id="@+id/start_time"
+        android:text="11"/>
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dip"
+        android:layout_toRightOf="@+id/start_time"
+        android:id="@+id/first_text"
+        android:textSize="20dip"
+        android:text="h："/>
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dip"
+        android:layout_toRightOf="@+id/first_text"
+        android:textSize="20dip"
+        android:id="@+id/end_time"
+        android:text="13"/>
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dip"
+        android:layout_toRightOf="@+id/end_time"
+        android:textSize="20dip"
+        android:text="h]"/>
+
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="18dip"
+        android:id="@+id/second_text"
+        android:paddingTop="4dip"
+        android:layout_below="@+id/end_time"
+        android:text="Tag：" />
+    <TextView
+        android:textColor="#eeeeee"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="18dip"
+        android:id="@+id/service_tag"
+        android:paddingRight="20dip"
+        android:paddingTop="4dip"
+        android:layout_below="@+id/end_time"
+        android:text="video games time"
+        android:layout_toRightOf="@+id/second_text"/>
+
+    <!-- 进入 -->
+    <ImageView android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:src="@drawable/arrow"
+        android:id="@+id/go_icon"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
