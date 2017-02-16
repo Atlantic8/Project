@@ -1,0 +1,78 @@
+{% extends 'oj/base.html' %}
+{% block title %}submission{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/submission.css"/>
+{% endblock %}
+
+{% block content %}
+<div class="submission">
+<br><hr><br>
+{% if submissions == -1 %}
+<br><br><br><br><br>
+<center>You don't have any submissions yet.</center>
+<br><br><br><br><br><br><br><br><br><br>
+{% else %}
+<center>
+<table class="submissionlist">
+	<thead>
+		<th>Create time</th>
+		<th>Problem</th>
+		<th>Status</th>
+		<th>Runtime</th>
+		<th>Language</th>
+	</thead>
+	<tbody>
+	{% for submission in submissions %}
+	<tr>
+		<td>{{submission.create_time}}</td>
+		<td>{{submission.title}}</td>
+		<td><a href="/submission/detail/?id={{submission.id}}">
+			{% ifequal submission.res 0 %}
+				AC
+			{% endifequal %}
+			{% ifequal submission.res 1 %}
+				RE
+			{% endifequal %}
+			{% ifequal submission.res 2 %}
+				TLE
+			{% endifequal %}
+			{% ifequal submission.res 3 %}
+				MLE
+			{% endifequal %}
+			{% ifequal submission.res 4 %}
+				CE
+			{% endifequal %}
+			{% ifequal submission.res 5 %}
+				WA
+			{% endifequal %}
+			{% ifequal submission.res 6 %}
+				WA
+			{% endifequal %}
+			{% ifequal submission.res 7 %}
+				SE
+			{% endifequal %}
+			</a>
+		</td>
+		<td>{{submission.time_used}} ms</td>
+		<td>{{submission.language}}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</center>
+<nav class="submission_page">
+    <ul>
+    {% ifnotequal go_prev 0 %}
+        <li style="float:left;"><a href="/submission/page/{{ go_prev }}/">Last</a></li>
+    {% endifnotequal %}
+    <center><li>Page {{page}}</li></center>
+    {% ifnotequal go_next 0 %}
+        <li style="float:right;"><a href="/submission/page/{{ go_next }}/">Next</a></li>
+    {% endifnotequal %}
+    </ul>
+</nav>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	padding:0px;margin:0px;border:0px;
+	position:relative;
+}
+
+.nav{
+	width: 100%;
+	height: 50px;
+	background:#333333;
+}
+
+.nav .div-inline{
+	background:#333333;
+	float:left;
+	height: 36px;
+}
+
+.nav .div-inline a{
+	height:100%;
+	background:#333333;
+	color:#bbbbbb;
+	font-size:16px;
+	margin-top: 14px;
+	padding-right: 15px;
+	padding-left: 15px;
+	display:block;
+	text-align:center;
+	vertical-align: center;
+	text-decoration:none;
+}
+.nav .div-inline a:hover{
+	color:#bbbbbb;
+	background:#333333;
+}
+
+.site-footer {
+	width: 100%;
+	height: 80px;
+	position:fixed;
+	background: #aaaaaa;
+	bottom: 0px;
+}
+
+.site-footer .container {
+	padding: 5px;
+}
+
+.site-footer .container a{
+	font-size: 11px;
+	color: #555555;
+}

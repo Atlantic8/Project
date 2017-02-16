@@ -1,0 +1,46 @@
+.problemset {
+	width: 80%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.problemlist {
+	font-family: verdana,arial,sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0 auto;
+}
+.problemlist table{
+	font-size: 13px;
+	border: 1px solid #555555;
+}
+.problemlist thead th{
+	background-color: #777777;
+	color: white;
+	border: 1px solid #555555;
+	padding: .65em;
+}
+
+.problemlist tbody tr td{
+	padding: .65em;
+	border: 1px solid #555555;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.problemlist tbody tr:nth-child(even) {  
+    background: #dddddd;  
+}  
+
+.page ul{
+	width: auto;
+}
+.page ul li{
+	list-style-type:none;
+	width: auto;
+}
+
+.page ul li a{
+	text-decoration:none;
+	color: #777777;
+}

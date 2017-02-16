@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/transitional.dtd">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}{% endblock %}</title>
+{% block link %}
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="/static/css/base.css"/>
+</head>
+<body>
+<div class="nav">
+  <div class="div-inline"><a href="#" style="color:red;">Red Comet</a></div>
+  <div class="div-inline"><a href="/problemset/page/1/">Problem</a></div>
+  <div class="div-inline"><a href="/submission/page/1/">My submission</a></div>
+  <div class="div-inline"><a href="#">Contest</a></div>
+  <div class="div-inline"><a href="#">Forum</a></div>
+
+  <div class="div-inline" style="float:right;padding-left: 0px;"><a href="/accounts/logout/">Logout</a></div>
+  <div class="div-inline" style="float:right;padding-right: 0px;"><a href="#">{{username}}</a></div>
+</div>
+{% block content %}
+{% endblock %}
+<br><br>
+<div style="padding-bottom:80px;"> </div>
+<center>
+<div class="site-footer">
+  <div class="container">
+    <a href="/faq/" >Frequently Asked Questions</a> |
+    <a href="/tos/" >Terms of Service</a> <br>
+    <a>Privacy Policy</a> <br>
+    <a href="/tos/" >Terms of Service</a><br>
+    <a>Copyright @ 2016 RedComet</a><br>
+    <a></a>
+  </div>
+</div></center>
+</body>
+</html>

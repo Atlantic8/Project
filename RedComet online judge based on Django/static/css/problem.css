@@ -1,0 +1,62 @@
+.problempage {
+	width: 80%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.problemstate{
+	width: auto;
+	margin: 0 auto;
+	font-size: 13px;
+	border: 0px;
+	background: #333333;
+}
+
+.problemstate ul{
+	width: auto;
+	margin: 0px;
+	padding: 0;
+}
+
+.problemstate ul li{
+	list-style-type:none;
+	float: left;
+	width: auto;
+	padding-right: 10px;
+}
+
+.problemstate ul li a{
+	text-decoration:none;
+	color: #555555;
+}
+
+
+.langselect p{
+	color: #666666;
+}
+
+.langselect p select{
+	color: #444444;
+	border: solid 1px #000;
+	width: 100px;
+	border-color: #aaaaaa;
+}
+
+.codesubmit textarea{
+	font-family: monospace;
+	font-size: 14px;
+	color: #eeeeee;
+	width: 100%;
+	height: 500px;
+	background: #333333;
+}
+.codesubmit button{
+	font-size: 15px;
+	color: #eeeeee;
+	width: 70px;
+	height: 35px;
+	border-style:solid;
+	background-color: #666688;
+	border-color: #666688;
+	vertical-align: middle;
+}

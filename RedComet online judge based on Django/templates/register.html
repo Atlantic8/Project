@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Register</title>  
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css"/>  
+</head>  
+<body>
+    <div id="login">  
+        <h1>Red Comet</h1>
+        <form method="post" action="/accounts/register/">
+            <input type="text" required="required" placeholder="用户名" name="username"></input>
+            <input type="text" required="required" placeholder="昵称" name="nickname"></input>
+            <input type="text" required="required" placeholder="邮箱" name="email"></input>
+            <input type="password" required="required" placeholder="密码" name="password"></input>
+            <input type="password" required="required" placeholder="确认密码" name="password_conf"></input>
+            <div>
+                <div style="float:left;"><button class="but" type="submit" name="submit" value="register">Register</button></div>
+                <div style="float:right;"><button class="but" type="submit" name="submit" value="cancel">Cancel</button></div>
+            </div>
+        </form>
+    </div>  
+</body>
+<!--
+<footer>
+    <div>
+        <hr>
+        <p>
+            <a href="/faq/">Frequently Asked Questions</a>
+            <a href="/tos/">Terms of Service</a>
+        </p>
+        <p>
+            <a href="//www.iubenda.com/privacy-policy/499831" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+        </p>
+        <p>Copyright © 2016 LeetCode</p>
+    </div>
+</footer>
+-->
+</html>  

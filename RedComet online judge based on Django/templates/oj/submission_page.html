@@ -1,0 +1,48 @@
+{% extends 'oj/base.html' %}
+{% block title %}submission{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/submission_page.css"/>
+{% endblock %}
+
+{% block content %}
+<div class="submission_page">
+	<div class="header">
+		<li><h3 style="color:#333333;">{{submission.problem_id}}. {{submission.title}}</h3></li>
+		<li style="float: right; font-size: 13px;">created in {{submission.create_time}}</li>
+	</div>
+	<br><hr>
+	<div class="info">
+		<h5>Language: {{submission.language}}</h5>
+		<h5>Time used: {{submission.time_used}} ms</h5>
+		<h5>Memory used: {{submission.memory_used}} Byte</h5>
+	</div>
+	<h5 style="color: #666666">Result: {% ifequal submission.res 0 %}
+				AC
+			{% endifequal %}
+			{% ifequal submission.res 1 %}
+				RE
+			{% endifequal %}
+			{% ifequal submission.res 2 %}
+				TLE
+			{% endifequal %}
+			{% ifequal submission.res 3 %}
+				MLE
+			{% endifequal %}
+			{% ifequal submission.res 4 %}
+				CE
+			{% endifequal %}
+			{% ifequal submission.res 5 %}
+				WA
+			{% endifequal %}
+			{% ifequal submission.res 6 %}
+				WA
+			{% endifequal %}
+			{% ifequal submission.res 7 %}
+				SE
+			{% endifequal %}</h5>
+	<div class="codesubmission">
+		<center><b><textarea name="source_code" id="source_code" disabled="disabled">{{code}}</textarea></b></center><br><br>
+	</div>
+</div>
+{% endblock %}

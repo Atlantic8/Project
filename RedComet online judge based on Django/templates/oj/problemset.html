@@ -1,0 +1,49 @@
+{% extends "oj/base.html" %}
+{% block title %}
+{{page_title}}
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/problemset.css"/>
+{% endblock %}
+
+{% block content %}
+<br><hr><br>
+<div class="problemset">
+<center>
+<table class="problemlist">
+	<thead>
+		<th>ID</th>
+		<th>Title</th>
+		<th>Difficulty</th>
+		<th>AC ratio</th>
+		<th>Status</th>
+	</thead>
+	<tbody>
+	{% for problem in problem_set %}
+	<tr>
+		<td>{{problem.problem_id}}</td>
+		<td><a href="/problemset/problem/{{problem.title}}/" style="text-decoration:none;">{{problem.title}}</a></td>
+		{% ifequal problem.difficulty 1 %} <td>easy</td> {% endifequal %}
+		{% ifequal problem.difficulty 2 %} <td>medium</td> {% endifequal %}
+		{% ifequal problem.difficulty 3 %} <td>difficult</td> {% endifequal %}
+		<td>{{problem.acceptance}}</td>
+		<td>{{problem.state}}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</center>
+<nav class="page">
+    <ul>
+    {% if go_prev > 0 %}
+        <li style="float:left;"><a href="/problemset/page/{{ go_prev }}/">上一页</a></li>
+    {% endif %}
+    <center><li>Page: {{page}}</li></center>
+    {% if go_next > 0%}
+        <li style="float:right;"><a href="/problemset/page/{{ go_next }}/">下一页</a></li>
+    {% endif %}
+    </ul>
+</nav>
+</div>
+{% endblock %}

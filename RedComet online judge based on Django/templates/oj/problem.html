@@ -1,0 +1,67 @@
+{% extends 'oj/base.html' %}
+{% block title %}problem{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/problem.css"/>
+{% endblock %}
+
+{% block content %}
+<div class="problempage">
+	<div><h3>{{problem.problem_id}}. {{problem.title}}</h3></div>
+	<div class="problemstate">
+		<ul>
+			<li>Accept: {{problem.accept_number}}</li>
+			<li>Submission: {{problem.submission_number}}</li>
+			{% ifequal problem.difficulty 1 %} <li>difficulty: easy</li> {% endifequal %}
+			{% ifequal problem.difficulty 2 %} <li>difficulty: medium</li> {% endifequal %}
+			{% ifequal problem.difficulty 3 %} <li>difficulty: difficult</li> {% endifequal %}
+			<li style="float:right"><a href="/submission/{{problem.title}}/page/1/">My submission</a></li>
+		</ul>
+	</div>
+	<br><hr>
+	<div>
+		<b>Description:</b><br>
+		{{problem.content|linebreaks}}
+	</div>
+	<div>
+		<b>Example:</b><br>
+		{{problem.example|linebreaks}}
+	</div>
+	<div>
+		<b>Hint:</b><br>
+		{{problem.hint}}
+	</div>
+	<br><hr>
+	<!-- <form action="/problemset/{{problem.title}}/submit" class="crawl" method="POST"> -->
+	<div class="langselect">
+		<p>Language:&nbsp;&nbsp;
+		<select name="selected" id="selected">
+  			<option value ="c">C</option>
+  			<option value ="c++">C++</option>
+  			<option value="java">Java</option>
+  			<option value="python">Python</option>
+		</select></p>
+	</div>
+	<div class="codesubmit">
+		<b><textarea name="source_code" id="source_code">{{code}}</textarea></b><br><br>
+		<button name="sumbit_code" type="button", id="sumbit_code">Submit</button>
+	</div>
+	<!-- </form> -->
+	<div><h4 id="result"></h4></div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script language="javascript">
+		$(document).ready(function(){
+      		$("#sumbit_code").click(function(){
+      			$('#result').html("Waiting");
+        		var lang = $("#selected").val();
+        		var code = $("#source_code").val();
+        		$.post("/problemset/submit/",{'lang':lang,'code':code}, function(ret){
+            		$('#result').html(ret);
+        		})
+      		});
+    	});
+	</script>
+
+</div>
+{% endblock %}
