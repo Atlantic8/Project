@@ -133,8 +133,49 @@ class submission(models.Model):
 - 程序编译通过python的Subprocess包的Popen方法调用相应的编译器完成
 - 程序执行消耗的时间和空间计算通过基于c语言的python扩展包lorun获取
 
+**Popen方法，执行外部程序。设置shell=True我们就能以shell方式去执行命令。可以使用cwd指定工作目录，获取程序的外部输出可以使用管道PIPE，调用communicate()方法可以可以获取外部程序的输出信息，也就是编译错误信息。**
+
+```java
+# cwd is the working directory, source file and exe are stored in cwd
+# cmd 是编译命令，比如"gcc main.c -o main -Wall -lm -O2 -std=c99 --static -DONLINE_JUDGE"
+p = subprocess.Popen(cmd,shell=True,cwd=exe_dir,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+
+out,err =  p.communicate()#获取编译错误信息
+if p.returncode == 0: #返回值为0,编译成功
+    return True
+```
+
+判题的过程由图中所示:
+
+![判题过程](http://wx2.sinaimg.cn/mw690/9bcfe727ly1fcud8mwt8mj20fu12p43h.jpg)
 
 
-
-
+###### lorun的使用示例
+```java
+def runone(p_path, in_path, out_path):
+    fin = open(in_path) // 测试用例文件
+    ftemp = open('temp.out', 'w') // 存储运行结果的临时文件
+    
+    runcfg = {
+        'args':['./m'], // 可执行文件
+        'fd_in':fin.fileno(), // 测试用例文件
+        'fd_out':ftemp.fileno(), // 存储运行结果的临时文件
+        'timelimit':1000, #in MS // 运行时间上限
+        'memorylimit':20000, #in KB // 占用内存上限
+    }
+    
+    rst = lorun.run(runcfg)
+    fin.close()
+    ftemp.close()
+    
+    if rst['result'] == 0:
+        ftemp = open('temp.out')
+        fout = open(out_path)
+        crst = lorun.check(fout.fileno(), ftemp.fileno()) // 对比运行结果与真实结果
+        fout.close()
+        ftemp.close()
+        os.remove('temp.out')
+        if crst != 0:
+            return {'result':crst}
+```
 
