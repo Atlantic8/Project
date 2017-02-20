@@ -179,3 +179,6 @@ def runone(p_path, in_path, out_path):
             return {'result':crst}
 ```
 
+###### 并行判题
+考虑到大量请求同时出现的情况，扩展判题机器成了自然的选择。考虑加入多个判题客户端，任务由判题服务器分发，判题客户端得出结果返回给服务器即可。所以整体的结构如下图：
+![系统结构图](http://ww1.sinaimg.cn/large/9bcfe727ly1fcwqftbu4qj21h70zs40o)
