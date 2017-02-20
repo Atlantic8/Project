@@ -129,7 +129,7 @@ class submission(models.Model):
 ###### 判题
 - 每道题的测试用例和正确结果以文件的形式存储
 - 浏览器提交的任务使用FIFO队列管理
-- 使用Python的进程池高效地处理每一个任务
+- 使用Python的进程池高效地处理每一个任务，任务添加和执行采用生产者-消费者模型
 - 程序编译通过python的Subprocess包的Popen方法调用相应的编译器完成
 - 程序执行消耗的时间和空间计算通过基于c语言的python扩展包lorun获取
 
