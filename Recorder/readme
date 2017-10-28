@@ -1,0 +1,27 @@
+when install xhtml2pdf:
+problem : cannot import name inputstream
+solution : remove original html5lib, run 'sudo -H pip install html5lib==1.0b8'
+
+2017-04-14
+1. give up pdf receipt
+2. deploy project to apache
+3. file changes recorded
+4. dealing python version bug, just trying to recompile mod-wsgi module
+5. solve directory permission conflict
+
+unsolved: 
+1. refresh receipt page would lead to extra sales records
+2. in account page, user account-type cannot display correctly
+3. announcement design
+
+
+2017-04-17
+1. bug "refresh receipt page would lead to extra sales records" fixed
+2. bug "user account-type unnormal display" fixed
+
+unsolved:
+1. announcement design
+
+2017-04-18
+1. finish announcement design. (pay attention to file permission)
+

@@ -1,0 +1,27 @@
+.wrapper {
+    width : 1000px;
+}
+
+.one {
+	height: 135px;
+	width: 100%;
+	background:#eeeeee;
+	border:1px solid #ffffff;
+	position: relative;
+}
+
+.info {
+    margin-left: 30px;
+}
+
+.customer {
+	
+}
+.op {
+    background:#eeeeee;
+}
+
+.attribute {
+    text-align: left;
+    padding-top:5px;
+}

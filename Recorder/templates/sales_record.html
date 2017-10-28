@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/sales_record.css"/>
+{% endblock %}
+
+{% block content %}
+<br>
+
+<center>
+    <div class="contents">
+        <div style="font-size:30px;">销售记录</div>
+        <br>
+        {% for sr, number in srs %}
+        <div class="one_record">
+            <div class="wrapper">
+                <center>
+                    <div style="padding-top:10px;padding-bottom:5px;">{{sr.store_name}}</div>
+                </center>
+                <hr color="#ffffff" >
+                <div class="header" style="padding:0px;">
+                    <div style="text-align:left; height:30px;">
+                        <div style="padding-left:10px; float:left; width:30%;">客户 : {{sr.customer_id}}</div>
+                        <div style="float:left; width:25%;">价格 : {{sr.trade_price}} 元</div>
+                        <div style="padding-left:10px; margin:0 auto;">销售人员 : {{sr.sales_personnel}}</div>
+                    </div>
+                    <div style="text-align:left; height:30px;">
+                        <div style="padding-left:10px; float:left; width:30%;">商品数量 : {{number}}</div>
+                        <div style="float:left; width:25%;">{{sr.trade_date}}</div>
+                        <div style="padding-left:10px;">地点 : {{sr.location}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="content">
+                    {% for record in sr.item_id %}
+                    <div class="father">
+                        <div style="float:left; padding-top:1px; padding-left:2px;">
+                            <image src="{{record.image.url}}" style="width:130px; height:130px;"></image>
+                        </div>
+                        <div class="info" style="width:50%; margin-left:10px;">
+                            <div class="attribute" style="height:30px;margin-top:10px;">商品描述 : {{record.description}}</div>
+                            <div class="attribute" style="height:30px;">品类 : {{record.category}}</div>
+                            <div class="attribute" style="height:30px;">序列号 : {{record.serial_no}}</div>
+                            <div class="attribute" style="height:30px;margin-bottom:5px;">商品大小 : {{record.size}}</div>
+                        </div>
+                        <div class="info" style="width:25%; margin-left:10px;">
+                            <div class="attribute" style="height:30px;margin-top:8px;">{{record.main_material_name}}/{{record.weight}}g</div>
+                            <div class="attribute" style="height:30px;">{{record.main_stone_name}}/{{record.main_stone_weight}}g</div>
+                            <div class="attribute" style="height:30px;">售价 : {{record.sales_price}} RMB</div>
+                            <div class="attribute" style="height:30px;margin-bottom:5px;">折扣 : {{record.discount}}%</div>
+                        </div>
+                        <!--<div class="info" style="float:right; width:30%;white-space:wrap; text-overflow:hidden;">
+                            <div class="attribute">General Information : {{record.general_information}}</div>
+                        </div> -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+    {% if is_null is False %}
+    <nav class="page">
+        <ul>
+            {% if go_prev > 0 %}
+            <li style="float:left;"><a href="/records/{{ go_prev }}/">上一页</a></li>
+            {% endif %}
+            <center>
+                <li>第{{page}}页</li>
+            </center>
+            {% if go_next > 0%}
+            <li style="float:right;"><a href="/records/{{ go_next }}/">下一页</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% else %}
+    <div>没有您可以查看的销售记录</div>
+    {% endif %}
+</center>
+
+
+{% endblock %}

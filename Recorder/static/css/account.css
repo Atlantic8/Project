@@ -1,0 +1,45 @@
+div {
+    font-family:Tahoma,Arial,Helvetica,STHeiti;
+}
+
+.wrapper {
+    width:1000px;
+}
+
+.resetPassword{
+    background: #eeeeee;
+    width:100%;
+    height:150px;
+}
+
+.resetAnn {
+    background: #eeeeee;
+    width:100%;
+    height:150px;
+}
+
+.password{
+    background: #eeeeee;
+}
+
+.profile{
+    background: #eeeeee;
+    height:150px;
+}
+
+.attribute {
+    font-size:18px;
+    margin-left: 20%;
+    text-align:left;
+    height: 30px;
+}
+
+.attribute1 {
+    font-size:18px;
+    margin-left: 5%;
+    text-align:left;
+    height: 30px;
+
+}
+
+

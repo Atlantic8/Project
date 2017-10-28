@@ -1,0 +1,23 @@
+
+.wrapper {
+width: 1000px;
+height: 1000px;
+border: 1px solid orange;
+padding: 15px;
+margin: 20px auto;
+display: grid;
+grid-template-columns: repeat(5, 100px);
+grid-template-rows: auto ;
+}
+.box {
+background: orange;
+height: 250px;
+width: 200px;
+line-height: 250px;
+text-align: center;
+color: #fff;
+font-size: 3em;
+}
+.box:nth-child(even){
+background: green;
+}

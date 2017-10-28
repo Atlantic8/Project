@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/transitional.dtd">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>珠宝销售管理系统</title>
+{% block link %}
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="/static/css/base.css"/>
+</head>
+<body>
+<div class="nav">
+  <div class="div-inline"><a class="diva" href="#" style="color:#222222;">珠宝之家</a></div>
+  <div class="div-inline"><a class="diva" href="/records/1/">主页</a></div>
+  {% if user.permission == "3" %}
+    <div class="div-inline"><a class="diva" href="/admin/">管理界面</a></div>
+  {% endif %}
+  
+  <div class="div-inline" style="float:right;padding-left: 0px;">
+    <div class="menuitem">
+        <div style="color:#ffffff;">{{username}}</div>
+        <div class="submenu">
+            <div class="subitem"><a class="user" href="/account/">我的账户</a></div>
+            <div class="subitem"><a class="user" href="/records/sales_record/1/">销售记录</a></div>
+            <div class="subitem"><a class="user" href="/logout/">登出</a></div>
+        </div>
+    </div>
+  </div>
+  <div class="div-inline" style="float:right; padding-right: 15px;">
+      <a class="diva" href="/records/cart/">购物车</a>
+  </div>
+</div>
+
+<br><br>
+<center>
+    <div class="anno">
+        <div style="color:#0000ff">通知</div>
+        <div style="font-size:20px;">{{xbox}}</div>
+    </div>
+</center>
+
+{% block content %}
+{% endblock %}
+<br><br>
+
+</body>
+<center>
+<div class="site-footer">
+  <div class="container1">
+    <a style="font-size:15px; color:#444444">All Rights Reserved</a>
+    <a></a>
+  </div>
+</div>
+</center>
+
+</html>
+

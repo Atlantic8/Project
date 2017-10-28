@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/record.css"/>
+{% endblock %}
+
+{% block content %}
+
+<center>
+    <p style="font-size:30px;">商品列表</p>
+    <!--
+    <div style="width:1020px; text-align-last: justify;">
+        <div style="display: inline-block;">种类：
+            <select name="category" id="category" style="width:160px; height:20px;">
+                {% for category in category_list %}
+                <option id="" value="{{category.category}}">{{category.category}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="display: inline-block;">价格：<input id="min_price" style="width:55px;" placeholder="0">元 ~ <input
+                id="max_price" style="width:75px;" placeholder="100000000">元
+        </div>
+        <div style="display: inline-block;">折扣商品：<input type="checkbox" id="check_box_discount"/></div>
+        <div style="display: inline-block;">有货：<input type="checkbox" id="check_box_available"/></div>
+        <div style="display: inline-block;">
+            <button id="filter">筛选</button>
+        </div>
+    </div>
+    <br>
+    -->
+    <div class="content1" style="width:1100px;">
+        {% if is_null is False %}
+        {% endif %}
+        <div class="wrapper" style="background: #eeeeee; padding-top:20px;">
+            {% for record in records %}
+            <a class="click_father" style="height: 340px; width: 250px; text-decoration:none"
+               href="/records/detail/{{record.serial_no}}">
+                <div class="father" style="height: 340px; width: 250px; margin-left:6px;">
+                    <div class="son_image" style="width:100%; height:250px;"><img style="width: 250px; height: 250px;"
+                                                                                  src="{{record.image.url}}"></div>
+                    <div style="width:100%; height:100%;">
+                        <div class="son_text" style="height: 20px; font-size: 12px; margin-top:8px;">
+                            >{{record.description}}
+                        </div>
+                        <div class="son_text" style="height: 20px;">
+                            <div style="text-align-last: justify;">
+                                <div style="display: inline-block;font-size: 12px;">>{{record.category}}</div>
+                                <div style="display: inline-block; padding-right: 5px;font-size: 12px;">
+                                    {{record.weight}}g
+                                </div>
+                            </div>
+                        </div>
+                        <div class="son_text" style="height: 20px; font-size: 12px;">
+                            >{{record.general_information}}
+                        </div>
+                        <div class="son_text" style="height: 20px;font-size: 12px; float: left; padding-left: 80px;">
+                            {{record.sales_price}} RMB
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% if is_null is False %}
+    <nav class="page">
+        <ul>
+            {% if go_prev > 0 %}
+            <li style="float:left;"><a href="/records/{{ go_prev }}/">上一页</a></li>
+            {% endif %}
+            <center>
+                <li>第{{page}}页</li>
+            </center>
+            {% if go_next > 0%}
+            <li style="float:right;"><a href="/records/{{ go_next }}/">下一页</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% else %}
+    <p>商城中没有您可以查看的商品</p>
+    {% endif %}
+</center>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="javascript">
+		$(document).ready(function(){
+      		$("#filter").click(function(){
+      		    var category = $("#category").val();
+      		    var min_price = $("#min_price").val();
+      		    min_price = Number(min_price);
+      		    var max_price = $("#max_price").val();
+      		    max_price = Number(max_price);
+      		    if (min_price > max_price) {
+      		        alert("价格上限应该大于价格下限！");
+      		        return;
+      		    }
+
+      		    var check_box_discount = 0;
+      		    var check_box_available = 0;
+      		    if ($("#check_box_discount").is(':checked')) {
+      		        check_box_discount = 1;
+      		        //alert(check_box_discount)
+      		    }
+      		    if ($("#check_box_available").is(':checked')) {
+      		        check_box_available = 1;
+      		        //alert(check_box_discount)
+      		    }
+
+      		    if (category=="所有" && max_price==0 && min_price==0 && check_box_discount==0 && check_box_available==0)
+      		        return;
+      		    alert("suck my balls");
+      		    if (max_price==0 && min_price==0)
+      		        max_price=100000000;
+
+      		    location.href("/records/filter/1/");
+      		    return;
+
+                $.post("/records/filter/1/",{ "category":category,"min_price":min_price,"max_price":max_price,"discount_check":check_box_discount,"available_check":check_box_available}, function(ret){
+            		if (ret == 1) alert("成功");
+            		else alert("修改失败");
+            	})
+
+      		    if (new_password != new_password_checker || new_password.length==0 || original.length==0) {
+      		        alert("密码不能为空.");
+      		    } else {
+      		        $.post("/reset_password/",{ "password": original, "new_password":new_password}, function(ret){
+            		    if (ret == 1) alert("成功");
+            		    else alert("修改失败");
+            		})
+      		    }
+      		});
+    	});
+
+</script>
+
+
+{% endblock %}

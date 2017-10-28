@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/account.css"/>
+{% endblock %}
+
+{% block content %}
+<br>
+
+<center>
+
+    <div class="wrapper">
+        <div class="profile">
+            <div style="text-align:left; font-size:25px; padding-left:20px;">个人信息</div>
+            <div class="attribute" style="float:left; width:35%; margin-top:10px;">用户名 : {{user.username}}</div>
+            <div class="attribute" style="margin-top:10px;">门店 : {{user.store_name}}</div>
+            <div class="attribute" style="float:left;width:35%;">电子邮件 : {{user.email}}</div>
+            <div class="attribute">创建时间 : {{user.create_time}}</div>
+            <div class="attribute" style="float:left;width:35%;">
+                {% if user.contact %}
+                联系方式 : {{user.contact}}
+                {% else %}
+                联系方式 : 无
+                {% endif %}
+            </div>
+            <div class="attribute">账户类型 :
+                {% if user.permission == "1" %}
+                门店销售人员
+                {% endif %}
+                {% if user.permission == "2" %}
+                批发销售人员
+                {% endif %}
+                {% if user.permission == "3" %}
+                管理员
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="resetPassword">
+            <div style="text-align:left; font-size:25px; padding-left:20px;">重置密码</div>
+            <div class="password" style="float:left; width:17%;text-align:left; margin-left:19%;">
+                <div class="attribute1" style="padding-left:0px; margin-top:10px;">当前密码 :</div>
+                <div class="attribute1">新密码 :</div>
+                <div class="attribute1">重复新密码 :</div>
+            </div>
+            <div style="float:left; width:40%; text-align:left;">
+                <div class="attribute1" style="margin-top:10px;"><input id="original"></div>
+                <div class="attribute1"><input id="new_password"></div>
+                <div class="attribute1"><input id="new_password_checker"></div>
+            </div>
+            <div id="update" style="float:left; background:#eeeeee; padding-top:40px;">
+                <button style="height:30px;width:80px; float:left;">修改</button>
+            </div>
+        </div>
+        {% if user.permission == "3" %}
+        <br>
+        <div class="resetAnn">
+            <div style="text-align:left; font-size:25px; padding-left:20px;">重置通知</div>
+            <div style="float:left; padding-top:40px; margin-left:20%;"><input id="new_ann" style="width:500px;"></div>
+            <div id="update_ann" style="float:left; margin-left:60px; padding-top:40px;"><button style="width:70px;">修改</button></div>
+        </div>
+        {% endif %}
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script language="javascript">
+		$(document).ready(function(){
+      		$("#update").click(function(){
+      		    var original = $("#original").val();
+      		    var new_password = $("#new_password").val();
+      		    var new_password_checker = $("#new_password_checker").val();
+      		    if (new_password != new_password_checker || new_password.length==0 || original.length==0) {
+      		        alert("密码不能为空.");
+      		    } else {
+      		        $.post("/reset_password/",{ "password": original, "new_password":new_password}, function(ret){
+            		    if (ret == 1) alert("成功");
+            		    else alert("修改失败");
+            		})
+      		    }
+      		});
+    	});
+    </script>
+    <script language="javascript">
+        $(document).ready(function(){
+      		$("#update_ann").click(function(){
+      		    var new_ann = $("#new_ann").val();
+      		    if (new_ann.length == 0) {
+      		        alert("输入为空");
+      		    } else {
+                    $.post("/reset_announcement/",{ "new_ann": new_ann}, function(ret){
+            		    if (ret == 0) alert("修改失败");
+            		    else location.reload();
+            		})
+      		    }
+      		});
+    	});
+    </script>
+</center>
+
+<br>
+{% endblock %}

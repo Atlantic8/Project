@@ -1,0 +1,49 @@
+div {
+    font-family:Tahoma,Times New Roman,Arial,Helvetica,STHeiti;
+}
+.one_record {
+    width : 750px;
+    background:#eeeeee;
+}
+
+.wrapper {
+    width : 750px;
+    background:#eeeeee;
+}
+.header {
+}
+.content {
+
+}
+.father {
+    height: 135px;
+	width: 100%;
+	text-align:left;
+	background:#eeeeee;
+	border:1px solid #ffffff;
+	position: relative;
+}
+.info {
+    float:left;
+    text-align:left;
+}
+.attribute {
+	text-align: left;
+	height : 30px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.page ul{
+	width: auto;
+}
+.page ul li{
+	list-style-type:none;
+	width: auto;
+}
+
+.page ul li a{
+	text-decoration:none;
+	color: #777777;
+}

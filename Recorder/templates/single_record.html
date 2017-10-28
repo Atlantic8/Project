@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/single_record.css"/>
+{% endblock %}
+
+{% block content %}
+<br>
+<center>
+    <div class="wrapper">
+        <hr>
+        <p style="font-size:30px;">商品详情</p>
+        <div class="container">
+            <div><img style="width:400px; height:400px; border: solid; border-color: #eeeeee;"
+                      src="{{single_record.image.url}}"></div>
+            <div class="attribute">序列号 : {{single_record.serial_no}}</div>
+            <div class="attribute">商品描述 : {{single_record.description}}</div>
+            <div class="attribute">报告序列 : {{single_record.report_no}}</div>
+            <div class="attribute">品类 : {{single_record.category}}</div>
+            <div class="attribute">数量 : {{single_record.pieces}}</div>
+            <div class="attribute">商品大小 : {{single_record.size}}</div>
+            <div class="attribute">商品重量 : {{single_record.weight}}</div>
+            <div class="attribute">主成分名 : {{single_record.main_material_name}}</div>
+            <div class="attribute">主要石材 : {{single_record.main_stone_name}}</div>
+            <div class="attribute">主要石材重量 : {{single_record.main_stone_weight}}</div>
+            <div class="attribute">通用信息 : {{single_record.general_information}}</div>
+            <div class="attribute">评价 : {{single_record.comment}}</div>
+            <div class="attribute">售价 : {{single_record.sales_price}} RMB</div>
+            <div class="attribute">
+                Available :
+                {% if single_record.is_sold != True %}
+                是
+                {% else %}
+                否
+                {% endif %}
+            </div>
+            <div>
+                <div class="attribute">来自 : {{single_record.store_name}}</div>
+                {% if user.permission != "2" and user.store_name != single_record.store_name and single_record.is_sold == False%}
+                <div>
+                    <button id="order_product" style="height:35px; margin-left:10px;">订购</button>
+                </div>
+                {% endif %}
+            </div>
+            <br>
+        </div>
+        <br>
+        {% if not single_record.is_sold %}
+        <div style="text-align:center;">
+            <button id="add_to_cart" style="height:50px;">添加至购物车</button>
+        </div>
+        {% endif %}
+
+    </div>
+        <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script language="javascript">
+            $(document).ready(function(){
+                $("#order_product").click(function() {
+      		        alert("门店名: {{store.store_name}}\n 地址: {{store.store_address}}\n 联系方式: {{store.contact}}");
+      		    });
+    	    });
+        </script>
+        <script language="javascript">
+            $(document).ready(function(){
+      		    $("#add_to_cart").click(function() {
+      		        var res = confirm("添加至购物车？");
+      		        var item_id = {{single_record.item_id}};
+      		        if (res == true) {
+      		            $.post("/records/cart/add/",{ "product": item_id}, function(ret){
+            		        if (ret == 1) alert("添加成功");
+            		        else alert("添加失败");
+            		    })
+      		        }
+      		    });
+    	    });
+        </script>
+</center>
+<br><br><br>
+{% endblock %}

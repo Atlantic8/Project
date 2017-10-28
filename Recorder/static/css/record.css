@@ -1,0 +1,40 @@
+
+.content1 {
+	background: #eeeeee;
+}
+
+div {
+    font-family:simsun, arial;
+}
+
+.wrapper {
+    text-align: left;
+}
+
+.father {
+    background: #cccccc;
+    display: inline-block;
+    margin-bottom : 20px;
+}
+
+.son_image{
+}
+
+.son_text {
+    width:100%;
+	font-size: 12px;
+	white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+.page ul{
+	width: auto;
+}
+.page ul li{
+	list-style-type:none;
+	width: auto;
+}
+
+.page ul li a{
+	text-decoration:none;
+	color: #777777;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>record</title>  
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css"/>  
+</head>  
+
+<body>
+
+{% block content %}
+<br>
+<div class="problemset"><hr><br>
+    <center>
+<table class="problemlist">
+	<thead>
+		<th></th>
+		<th>image</th>
+		<th>serial no</th>
+		<th>description</th>
+		<th>report no</th>
+		<th>category</th>
+		<th>pieces</th>
+		<th>size</th>
+		<th>main material name</th>
+		<th>weight</th>
+		<th>main stone weight</th>
+		<th>general information</th>
+		<th>comment</th>
+		<th>sales price</th>
+	</thead>
+	<tbody>
+	{% for record in records %}
+	<tr>
+		<td><img class="center-block thumbnail" src="{{record.image.url }}" alt="" width="40" height="40" />/td>
+		<td>{{record.serial_no}}</td>
+		<td>{{record.description}}</td>
+		<td>{{record.report_no}}</td>
+		<td>{{record.category}}</td>
+		<td>{{record.pieces}}</td>
+		<td>{{record.size}}</td>
+		<td>{{record.main_material_name}}</td>
+		<td>{{record.weight}}</td>
+		<td>{{record.main_stone_weight}}</td>
+		<td>{{record.general_information}}</td>
+		<td>{{record.comment}}</td>
+		<td>{{record.sales_price}}</td>
+
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</center>
+<nav class="page">
+    <ul>
+    {% if prev != -1 %}
+        <li style="float:left;"><a href="/problemset/page/{{ prev }}/">上一页</a></li>
+    {% endif %}
+    <center><li>Page: {{page}}</li></center>
+    {% if next != -1 %}
+        <li style="float:right;"><a href="/problemset/page/{{ next }}/">下一页</a></li>
+    {% endif %}
+    </ul>
+</nav>
+</div>
+{% endblock %}
+
+
+
+
+
+</body>
+
+</html>

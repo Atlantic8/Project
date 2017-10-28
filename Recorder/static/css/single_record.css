@@ -1,0 +1,27 @@
+div {
+    font-family:Tahoma,Times New Roman,Arial,Helvetica,STHeiti;
+}
+
+.wrapper {
+	width: 1000px;
+	text-align: center;
+}
+
+.container {
+	width: 100%;
+	text-align: center;
+	background: #eeeeee;
+}
+
+.attribute {
+    width: 80%;
+    text-align: left;
+    font-size:17px;
+    padding-left : 100px;
+    padding-right : 100px;
+}
+
+button {
+    width: 125px;
+    height: 80px;
+}

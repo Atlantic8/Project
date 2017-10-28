@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "code2000";
+    src: url("code2000.ttf")
+}
+
+html {
+    font-family: code2000;
+}
+body {
+
+}
+div {
+    font-family:Tahoma,Times New Roman,Arial,Helvetica,STHeiti;
+}
+
+.wrapper {
+    width : 750px;
+    background:#eeeeee;
+}
+.header {
+    margin-top:4px;
+    padding-bottom:8px;
+}
+.content {
+
+}
+.father {
+    height: 135px;
+	width: 100%;
+	text-align:left;
+	background:#eeeeee;
+	border:1px solid #ffffff;
+	position: relative;
+}
+.info {
+    float:left;
+    text-align:left;
+}
+.attribute {
+	text-align: left;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}

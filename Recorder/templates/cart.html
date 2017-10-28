@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/cart.css"/>
+{% endblock %}
+
+{% block content %}
+<br><br>
+<center>
+    <div class="wrapper">
+        <form action="/records/cart/buy/" method="GET">
+            {% for record in records %}
+            <div class="one">
+                <div style="float:left; margin-left:0px; margin-top:50px; width:30px; margin-left:3px;">
+                    <center><input type="checkbox" value="{{record.item_id}}" name="check_box_list"/></center>
+                </div>
+                <div style="float:left; border:0px solid #eeeeee; padding-top:1px;">
+                    <image src="{{record.image.url}}" style="width:130px; height:130px;"></image>
+                </div>
+                <div class="info" style="float:left; width:40%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                    <div class="attribute">商品描述 : {{record.description}}</div>
+                    <div class="attribute">品类 : {{record.category}}</div>
+                    <div class="attribute">序列号 : {{record.serial_no}}</div>
+                    <div class="attribute">商品大小 : {{record.size}}</div>
+                </div>
+                <div class="info" style="float:left;">
+                    <div class="attribute">{{record.main_material_name}}/{{record.weight}}g</div>
+                    <div class="attribute">{{record.main_stone_name}}/{{record.main_stone_weight}}g</div>
+                    <div class="attribute">零售价 : {{record.sales_price}} RMB</div>
+                    <div class="attribute">折扣 : {{record.discount}}%</div>
+                </div>
+                <div style="padding-top:50px; float:right; margin-right:10px;"><a href="/records/cart/remove/{{record.item_id}}/">移除此商品</a></div>
+            </div>
+
+            {% endfor %}
+            <br><br>
+            {% if empty is True %}
+            <p>购物车中没有商品</p>
+            {% endif %}
+            {% if empty is False %}
+            <div id="op">
+                <div id="customer" style="float:left;">
+                    <div style="float:left; width:200px; font-size:22px;">选择客户:</div>
+                    <select name="customer_name" id="customer_name" style="margin-left:20px; height:40px;width:200px;">
+                        {% for name in name_list %}
+                        <option value="{{name.customer_name}}">{{name.customer_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="buy" style="float:right; margin-right:40px;">
+                    <button style="width:100px; height:45px;">购买</button>
+                </div>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</center>
+
+<br><br><br>
+{% endblock %}
